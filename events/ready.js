@@ -35,7 +35,7 @@ checkDate = () => {
       .setColor('#41D15C')
       .setTitle('◕‿◕')
       .setDescription(`✅ Hi your date  \` ${futureDay}/${realMonth}\` with the name of \`${nameFound}\` is about to trigger!`)
-      
+      db.deleteOne({Day:futureDay, Month:realMonth, Name:nameFound, UserID:userFound}).then(console.log('deleted succefully'))
       try{
         client.users.fetch(userFound).then(user => {
           user.send({embeds:[embed2]})
@@ -45,7 +45,7 @@ checkDate = () => {
       }
 
       
-      db.deleteOne({Day:futureDay, Month:realMonth, Name:nameFound, UserID:userFound})
+      
     }
   })
 
